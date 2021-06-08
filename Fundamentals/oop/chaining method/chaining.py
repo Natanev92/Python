@@ -11,9 +11,6 @@ class User:
     def display_user_balance(self):
         self.account_balance
         return self
-    def transfer_money(self, amount):
-        self.account_balance += amount
-        self.account_balance -= amount
 
 guido = User("Guido van Rossum")
 monty = User("Monty Python")
