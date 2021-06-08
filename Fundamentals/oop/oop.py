@@ -1,7 +1,6 @@
 class User:
-    def __init__(self, name, email_address):
+    def __init__(self, name):
         self.name = name
-        self.email = email_address
         self.account_balance = 0
     def make_deposit(self, amount):
         self.account_balance += amount
@@ -13,9 +12,9 @@ class User:
         self.account_balance += amount
         self.account_balance -= amount
 
-guido = User("Guido van Rossum", "guido@python.com")
-monty = User("Monty Python", "monty@python.com")
-natan = User("Natan Villasenor", "nvillasenor1@icloud.com")
+guido = User("Guido van Rossum")
+monty = User("Monty Python")
+natan = User("Natan Villasenor")
 
 guido.make_deposit(50)
 guido.make_deposit(125)
