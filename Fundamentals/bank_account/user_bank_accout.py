@@ -1,4 +1,4 @@
-from bank_account.bank_account import BankAccount
+from bank_account import BankAccount
 class User:
     def __init__(self, name):
         self.name = name
