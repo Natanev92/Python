@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <h1>Random Numbers</h1>
+    {% for number in random_numbers %}
+        <p>{{ number }}</p>
+    {% endfor %} -->
+    <h1>User Names</h1>
+    {% for user in user %}
+        <p>{{ user['name'] }} , {{ user['last_name'] }} , {{ user['full_name'] }}</p>
+    {% endfor %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Full Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Michael</td>
+            <td>Choi</td>
+            <td>Michael Choi</td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>john</td>
+            <td>Legened</td>
+            <td>John Legened</td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>Marc</td>
+            <td>Reyes</td>
+            <td>Marc Reyes</td>
+        </tr>
+        <tr>
+            <th scope="row">4</th>
+            <td>Natan</td>
+            <td>Villaseñor</td>
+            <td>Natan Villaseñor</td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>
