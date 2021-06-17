@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style_rows_and_cols.css') }}">
+    <title>Checkerboard - {{ rows }} Rows, {{ cols }} Cols</title>
+</head>
+<body>
+    <style>
+        .container {
+            grid-template-rows: repeat({{ rows }}, 1fr);
+            grid-template-col: repeat({{ cols }}, 1fr);
+        }
+    </style>
+    <div class="container">
+        {% for row in range(0,rows): %}
+            {% for col in range (0,cols): %}
+                {% if row%2 == 0: %}
+                    <div class="space1"></div>
+                    <div class="space2"></div>
+                {% else: %}
+                    <div class="space2"></div>
+                    <div class="space1"></div>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </div>
+</body>
+</html>
