@@ -7,19 +7,19 @@
     <title>Edit User</title>
 </head>
 <body>
-    <h1>Edit a current user!</h1>
+    <h1>Edit current user!</h1>
     <form action="/user/{{ user.id }}/update" method="post">
         <p>
             First Name
-            <input type="text" name="first_name" id="">
+            <input type="text" name="first_name" id="" value="{{ user.first_name }}">
         </p>
         <p>
             Last Name:
-            <input type="text" name="last_name" id="">
+            <input type="text" name="last_name" id="" value="{{ user.last_name }}">
         </p>
         <p>
             Email:
-            <input type="text" name="email" id="">
+            <input type="text" name="email" id="" value="{{ user.email }}">
         </p>
         <button>Update new user</button>
     </form>
