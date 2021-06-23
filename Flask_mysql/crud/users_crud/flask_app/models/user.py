@@ -36,9 +36,9 @@ class User:
         query = "INSERT into users (first_name, last_name, email, create_at, updated_at)" \
             "VALUES(%(first_name)s, %(last_name)s, %(email)s, NOW(), NOW())"
 
-        connectToMySQL("users_schema").query_db(query, data)
+        user_id = connectToMySQL("users_schema").query_db(query, data)
 
-        return User
+        return user_id
 
 
     @classmethod
@@ -55,10 +55,10 @@ class User:
     def delete(cls, data):
         query = "DELETE FROM users WHERE id = %(id)s;"
 
-        connectToMySQL("users_schema").query_db(query, data)
+        return connectToMySQL("users_schema").query_db(query, data)
 
     @classmethod
     def update(cls, data):
         query = "UPDATE users SET first_name = %(first_name)s, last_name = %(last_name)s, email = %(email)s, updated_at = NOW() WHERE id = %(id)s;"
 
-        connectToMySQL("users_schema").query_db(query, data)
+        return connectToMySQL("users_schema").query_db(query, data)
