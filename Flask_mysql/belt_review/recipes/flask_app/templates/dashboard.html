@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Welcome {{ user.first_name }}!</h1>
+    <h3>These are all the recipes</h3>
+
+    <p>{{ user.first_name }} {{ user.last_name }}</p>
+    <p>{{ user.name }}</p>
+    <table>
+        <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <!-- <th>description</th> -->
+
+        <th>Under 30 mins?</th>
+        <th>Created At</th>
+        <th>Updated At</th>
+        </tr>
+        {% for recipes in get_all_recipes %}
+            <tr>
+                <td>{{ recipes.id }}</td>
+                <td>{{ recipes.name }}</td>
+                <td>{{ recipes.time }}</td>
+                <td>{{ recipes.created_at }}</td>
+                <td>{{ recipes.updated_at }}</td>
+                <td>
+                    <a href="/recipes/{{ recipes.id }}"> View </a>
+                    {% if user.id == recipes.user_id %}
+                        | <a href="/recipes/{{ recipes.id }}/edit">Edit</a> |
+                        <a href="/recipes/{{ recipes.id }}/delete">Delete</a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="/recipes/new">create</a>
+    <a href="/logout">Logout</a> 
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add new recipe</title>
+</head>
+<body>
+    <div>
+        <h1>Add a new Recipe </h1>
+        <a href="/">Home</a>
+    </div>
+    <form action="/recipes/create" method="post">
+        <p>
+            User:
+        <select name="user_id" id="">
+            {% for user in all_users %}
+                <option value="{{ user.id }}">{{ user.first_name }}</option>
+            {% endfor %}
+        </select>
+        </p>
+        <p>
+            Name:
+            <input type="text" name="name" id="">
+        </p>
+        <p>
+            Description:
+            <input type="text" name="description" id="">
+        </p>
+        <p>
+            instruction:
+            <input type="text" name="instruction" id="">
+        </p>
+        <P>
+            Under 30 mins?
+            <label for="">Yes</label>
+            <input type="radio" name="time" id="">
+            <label for="">No</label>
+            <input type="radio" name="time" id="">
+        </P>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p style="color:crimson">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <button>Create!</button>
+    </form>
+</body>
+</html>

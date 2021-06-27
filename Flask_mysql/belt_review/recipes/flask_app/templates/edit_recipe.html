@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit your bike</title>
+</head>
+<body>
+    <h1>Edit current recipe!</h1>
+    <form action="/recipes/{{ recipes.id }}/update" method="post">
+        <p>
+            Name:
+            <input type="text" name="name" id="" value="{{ recipes.name }}">
+        </p>
+        <p>
+            Description:
+            <input type="text" name="description" id="" value="{{ recipes.description }}">
+        </p>
+        <p>
+            Instructions:
+            <input type="text" name="instruction" id="" value="{{ recipes.instruction }}">
+        </p>
+        <p>
+            Under 30 mins?
+            <label for="">Yes</label>
+            <input type="radio" name="time" value="yes"id="">
+            <label for="">No</label>
+            <input type="radio" name="time" value="no" id="">
+        </p>
+        <input type="submit" value="Update Recipe">
+    </form>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p style="color:crimson">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <a href="/dashboard">Home</a>
+    <a href="/recipes/{{ recipes.id }}">Show Recipe</a>
+</body>
+</html>
